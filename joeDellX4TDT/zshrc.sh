@@ -26,12 +26,13 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 
 export GEM_HOME="$HOME/gems"
+export HELM_EXPERIMENTAL_OCI=1
 
 #required for unit testing sn-update-processor and other for legacy ATP 1.0
 #export GOOGLE_APPLICATION_CREDENTIALS="/home/joe/Development/Tokens/ingka-ofd-cop-dev-23cd89267563.json"
 
 NEWLINE=$'\n'
-export PROMPT="%{$fg[green]%}%n@%m %{$fg[cyan]%}%~% %{$reset_color%} ${NEWLINE}λ "
+export PROMPT="%F{214}%n@%m %F{172}%~% %{$reset_color%} ${NEWLINE}%F{214}λ%{$reset_color%} "
 export RPROMPT="$(git_custom_status)"
 
 export PATH="$HOME/gems/bin:$PATH"
