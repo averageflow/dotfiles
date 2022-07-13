@@ -1,0 +1,3 @@
+[submodule "joeDellX4TDT/nvim"]
+	path = joeDellX4TDT/nvim
+	url = git@github.com:averageflow/neovim-config.git

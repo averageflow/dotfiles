@@ -33,10 +33,11 @@ export HELM_EXPERIMENTAL_OCI=1
 
 NEWLINE=$'\n'
 export PROMPT="%F{214}%n@%m %F{172}%~% %{$reset_color%} ${NEWLINE}%F{214}λ%{$reset_color%} "
-export RPROMPT="$(git_custom_status)"
+#export RPROMPT="$(git_custom_status)"
 
 export PATH="$HOME/gems/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/lua-language-server/bin:$PATH"
 
 alias clone="git clone"
 alias vi="nvim"
@@ -51,10 +52,17 @@ alias stress-cpu="dd if=/dev/urandom | gzip -9 >> /dev/null"
 alias top="htop"
 alias l="ls -lath"
 alias ll="ls -lath"
+alias matrix="cmatrix"
 
+alias fw-db-sds-dev="cloud_sql_proxy -log_debug_stdout=true -instances=ingka-ofd-cop-dev:europe-west4:atp-sds-event-instance-dev=tcp:0.0.0.0:5433"
+alias fw-db-sds-stage="cloud_sql_proxy -log_debug_stdout=true -instances=ingka-ofd-atp-stage:europe-west4:atp-sds-event-instance-stage=tcp:0.0.0.0:5433"
 alias fw-db-sn-detector-prod="gcloud compute ssh redis-forwarder-euw1-prod --tunnel-through-iap -- -N -L 5434:10.95.128.11:5432"
 alias fw-db-atp-prod="gcloud compute ssh redis-forwarder-euw1-prod --tunnel-through-iap -- -N -L 5433:10.95.128.2:5432"
 alias fw-redis-master-data-prod="gcloud compute ssh redis-forwarder-euw1-prod --tunnel-through-iap -- -N -L 6380:10.3.100.180:6379"
+alias gkedev="kubectl config use-context gke_ingka-managed-gke-dev_europe-west4_ccoe-europe-west4-dev-1"
+alias gkestage="kubectl config use-context gke_ingka-managed-gke-stage_europe-west4_ccoe-europe-west4-stage-1"
+alias gkeprod="kubectl config use-context gke_ingka-managed-gke-prod_europe-west4_ccoe-europe-west4-prod-1"
+
 
 if [ -e /home/joe/.nix-profile/etc/profile.d/nix.sh ]; then . /home/joe/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 eval "$(direnv hook bash)"
